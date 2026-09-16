@@ -14,6 +14,17 @@
     #pragma comment(lib, __FILE__ "\\..\\hwinfo_mainboard.lib")
     #pragma comment(lib, __FILE__ "\\..\\hwinfo_network.lib")
     #pragma comment(lib, __FILE__ "\\..\\hwinfo_battery.lib")
+#else
+    #include <dlfcn.h>
+    inline auto _flags = RTLD_NOW | RTLD_GLOBAL;
+    void* cpu = dlopen("hwinfo/libhwinfo_cpu.so", _flags);
+    void* ram = dlopen("hwinfo/libhwinfo_ram.so", _flags);
+    void* dsk = dlopen("hwinfo/libhwinfo_disk.so", _flags);
+    void* os  = dlopen("hwinfo/libhwinfo_os.so", _flags);
+    void* gpu = dlopen("hwinfo/libhwinfo_gpu.so", _flags);
+    void* mb  = dlopen("hwinfo/libhwinfo_mainboard.so", _flags);
+    void* net = dlopen("hwinfo/libhwinfo_network.so", _flags);
+    void* bat = dlopen("hwinfo/libhwinfo_battery.so", _flags);
 #endif
 
 #include "hwinfo/battery.h"
