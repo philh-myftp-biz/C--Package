@@ -45,4 +45,13 @@ namespace stru {
 
     //===============================================================================
 
+    str strip(const str& _str) {
+        size_t first = _str.find_first_not_of(' ');
+        if (str::npos == first) return "";
+        size_t last = _str.find_last_not_of(' ');
+        return _str.substr(first, (last - first + 1));
+    }
+
+    //===============================================================================
+
 }
