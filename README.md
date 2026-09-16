@@ -29,4 +29,8 @@
     `#include "httplib.h"`
 <br>
 
+- [GMLC-TDC/**netif**](https://github.com/GMLC-TDC/netif/releases/tag/v0.1.1) \
+    `#include "NetIF.hpp"`
+<br>
+
 ---
