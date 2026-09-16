@@ -17,4 +17,8 @@
     `#include "ww898/utf_converters.hpp"`
 <br>
 
+- [GiovanniDicanio/**WinReg**](https://github.com/GiovanniDicanio/WinReg/releases/tag/v8.0.0) \
+    `#include "WinReg/WinReg.hpp"`
+<br>
+
 ---
