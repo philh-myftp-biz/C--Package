@@ -9,4 +9,8 @@
 
 ### Bundled Libraries:
 
+- [nlohmann/**json**](https://github.com/nlohmann/json/releases/v3.12.0/) \
+    `#include "json.hpp"`
+<br>
+
 ---
