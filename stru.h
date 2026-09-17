@@ -4,10 +4,11 @@
 #include <vector>
 #include <iterator>
 #include <cwctype>
+#include <format>
 
 #include "ww898/utf_converters.hpp"
 
-using str = std::string;
+using str = str;
 using wstr = std::wstring;
 
 namespace stru {
@@ -83,6 +84,16 @@ namespace stru {
         if (str::npos == first) return "";
         size_t last = _str.find_last_not_of(' ');
         return _str.substr(first, (last - first + 1));
+    }
+
+    //===============================================================================
+    
+    str zfill(int n, str _str) {
+        return std::format("{:0>{}}", _str, n);
+    }
+
+    str zfill(int n, int _int) {
+        return std::format("{:0{}}", _int, n);
     }
 
     //===============================================================================
