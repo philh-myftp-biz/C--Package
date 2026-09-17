@@ -20,6 +20,11 @@
     namespace fs = std::filesystem;
 #endif
 
+#if __has_include(<subprocess.hpp>)
+    #include <subprocess.hpp>
+    namespace narg = subprocess::detail::named_arguments;
+#endif
+
 #if __has_include(<json.hpp>)
     #include <json.hpp>
     using json = nlohmann::json;
