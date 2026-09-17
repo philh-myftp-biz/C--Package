@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <iterator>
+#include <cwctype>
 
 #include "ww898/utf_converters.hpp"
 
@@ -25,12 +26,36 @@ namespace stru {
 
     //===============================================================================
 
+    str lower(str _str) {
+        std::transform(_str.begin(), _str.end(), _str.begin(), [](unsigned char c) {
+            return std::tolower(c);
+        });
+        return _str;
+    }
+
+    wstr lower(wstr _str) {
+        std::transform(_str.begin(), _str.end(), _str.begin(), [](wchar_t c) {
+            return std::towlower(c);
+        });
+        return _str;
+    }
+
+    //===============================================================================
+
     bool has_str(str mainstr, str substr) {
         return mainstr.find(substr) != str::npos;
     }
 
     bool has_str(wstr mainstr, wstr substr) {
         return mainstr.find(substr) != wstr::npos;
+    }
+
+    bool has_str_nc(str mainstr, str substr) {
+        return has_str(lower(mainstr), lower(substr));
+    }
+
+    bool has_str_nc(wstr mainstr, wstr substr) {
+        return has_str(lower(mainstr), lower(substr));
     }
 
     //===============================================================================
@@ -41,6 +66,14 @@ namespace stru {
 
     bool match_str(wstr a, wstr b) {
         return has_str(a, b) || has_str(b, a);
+    }
+
+    bool match_str_nc(str a, str b) {
+        return has_str_nc(a, b) || has_str_nc(b, a);
+    }
+
+    bool match_str_nc(wstr a, wstr b) {
+        return has_str_nc(a, b) || has_str_nc(b, a);
     }
 
     //===============================================================================
