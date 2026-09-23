@@ -20,6 +20,11 @@
     namespace fs = std::filesystem;
 #endif
 
+#if __has_include(<memory>)
+    #include <memory>
+    template <typename T> using unqptr = std::unique_ptr<T>;
+#endif
+
 #if __has_include(<subprocess.hpp>)
     #include <subprocess.hpp>
     namespace narg = subprocess::detail::named_arguments;
