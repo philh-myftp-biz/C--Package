@@ -21,7 +21,7 @@
     `#include "json.hpp"`
 <br>
 
-- [ww898/**utf-cpp**](https://github.com/ww898/utf-cpp/releases/tag/v2.2.4) \
+- [ww898/**utf-cpp**](https://github.com/MineFartsEmbed/ww898) \
     `#include "ww898/utf_converters.hpp"`
 <br>
 
