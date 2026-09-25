@@ -25,10 +25,6 @@
     `#include "ww898/utf_converters.hpp"`
 <br>
 
-- [GiovanniDicanio/**WinReg**](https://github.com/GiovanniDicanio/WinReg/releases/tag/v8.0.0) \
-    `#include "WinReg/WinReg.hpp"`
-<br>
-
 - [lfreist/**hwinfo**](https://github.com/lfreist/hwinfo/tree/88c5072c4a137d54e94c7e712ae28ac284f1dd9b) \
     `#include "hwinfo/hwinfo.h"`
     `extra_objects = ["hwinfo/*.a"]` (Linux/MacOS)
