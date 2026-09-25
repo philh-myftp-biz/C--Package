@@ -4,3 +4,6 @@
 [submodule "hwinfo"]
 	path = hwinfo
 	url = https://github.com/MineFartsEmbed/hwinfo
+[submodule "pciutils"]
+	path = pciutils
+	url = https://github.com/MineFartsEmbed/pciutils
