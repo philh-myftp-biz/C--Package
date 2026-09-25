@@ -25,7 +25,7 @@
     `#include "ww898/utf_converters.hpp"`
 <br>
 
-- [lfreist/**hwinfo**](https://github.com/lfreist/hwinfo/tree/88c5072c4a137d54e94c7e712ae28ac284f1dd9b) \
+- [lfreist/**hwinfo**](https://github.com/MineFartsEmbed/hwinfo) \
     `#include "hwinfo/hwinfo.h"`
     `extra_objects = ["hwinfo/*.a"]` (Linux/MacOS)
 <br>
