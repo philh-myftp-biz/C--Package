@@ -1,5 +1,8 @@
 #pragma once
 
+using uint = unsigned int;
+using ulong = unsigned long;
+
 #if defined(_WIN32) || defined(_WIN64)
     #define WINDOWS
     #define WIN32_LEAN_AND_MEAN
