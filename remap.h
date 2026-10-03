@@ -28,6 +28,11 @@ using ulong = unsigned long;
     template <typename T> using unqptr = std::unique_ptr<T>;
 #endif
 
+#if __has_include(<vector>)
+    #include <vector>
+    template <typename T> using vector = std::vector<T>;
+#endif
+
 #if __has_include(<subprocess.hpp>)
     #include <subprocess.hpp>
     namespace sp = subprocess;
