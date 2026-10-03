@@ -77,7 +77,6 @@ using ulong = unsigned long;
     #include <chrono>
     namespace chrono = std::chrono;
     using namespace std::chrono_literals;
-    namespace clock = std::chrono::steady_clock;
 #endif
 
 #if __has_include(<thread>)
