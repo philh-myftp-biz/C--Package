@@ -30,7 +30,10 @@ using ulong = unsigned long;
 
 #if __has_include(<subprocess.hpp>)
     #include <subprocess.hpp>
-    namespace narg = subprocess::detail::named_arguments;
+    namespace sp = subprocess;
+    namespace narg = sp::detail::named_arguments;
+    using dybuf = sp::dynamic_buffer;
+    using process = subprocess::detail::process;
 #endif
 
 #if __has_include(<json.hpp>)
