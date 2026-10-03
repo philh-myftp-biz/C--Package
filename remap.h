@@ -28,6 +28,14 @@ using ulong = unsigned long;
     template <typename T> using unqptr = std::unique_ptr<T>;
 #endif
 
+#if __has_include(<cstdio>)
+    #include <cstdio>
+    #ifdef _WIN32
+        #define popen _popen
+        #define pclose _pclose
+    #endif
+#endif
+
 #if __has_include(<vector>)
     #include <vector>
     template <typename T> using vector = std::vector<T>;
