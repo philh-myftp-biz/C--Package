@@ -13,6 +13,12 @@
     `#include "stru.h"`
 <br>
 
+- [./**pybind11w**](./pybind11w) \
+    `#include "pybind11w/pybind11w.h"`
+    `extra_link_args = ["/DEBUG"]` (Windows)
+    `extra_compile_args = ["/Zi"]` (Windows)
+<br>
+
 ---
 
 ### Bundled Libraries:

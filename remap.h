@@ -12,6 +12,7 @@ using ulong = unsigned long;
 
 #if __has_include(<pybind11/pybind11.h>)
     #include <pybind11/pybind11.h>
+    #include <pybind11w/pybind11w.h>
     namespace py = pybind11;
     using pyobj = pybind11::object;
     using pymod = pybind11::module_;
