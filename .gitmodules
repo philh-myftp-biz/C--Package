@@ -7,3 +7,6 @@
 [submodule "pciutils"]
 	path = pciutils
 	url = https://github.com/MineFartsEmbed/pciutils
+[submodule "magic_enum"]
+	path = magic_enum
+	url = https://github.com/MineFartsEmbed/magic_enum

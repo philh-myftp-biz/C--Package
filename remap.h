@@ -74,6 +74,11 @@ using ulong = unsigned long;
     #endif
 #endif
 
+#if __has_include(<magic_enum/magic_enum_all.hpp>)
+    #include <magic_enum/magic_enum_all.hpp>
+    namespace me = magic_enum;
+#endif
+
 #if __has_include(<chrono>)
     #include <chrono>
     namespace chrono = std::chrono;
