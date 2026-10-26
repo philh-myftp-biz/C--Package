@@ -1,6 +1,9 @@
 #include <pybind11/pybind11.h>
+#include <pybind11/native_enum.h>
 #include <stdexcept>
 #include <sstream>
+
+#include <magic_enum/magic_enum.hpp>
 
 #ifdef _WIN32
     #include <pybind11w/win.h>
@@ -36,4 +39,31 @@ struct PybindVerboseRegistration {
 };
 
 static PybindVerboseRegistration g_auto_verbose_registration;
+
+namespace pybind11 {
+
+    template <typename T>
+    object str_enum(handle m, const char* name) {
+
+        // Construct "enum.Enum" base class
+        native_enum<T> _enum_obj = {m, name, "enum.Enum"};
+        
+        // Register Enum Members
+        for (const auto& [value, name_view] : magic_enum::enum_entries<T>()) {
+            _enum_obj.value(name_view.data(), value);
+        }
+        _enum_obj.finalize();
+
+        // Retrieve the generated Python Enum object
+        object _cls = m.attr(name);
+
+        // Register Member Values
+        for (handle member : _cls.attr("__members__").attr("values")()) {
+            member.attr("_value_") = to_string(member.cast<T>());
+        }
+
+        return _cls;
+    }
+
+}
 
