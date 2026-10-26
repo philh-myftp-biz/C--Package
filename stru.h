@@ -90,4 +90,24 @@ namespace stru {
 
     //===============================================================================
 
+    template <IsString T>
+    T replace(T source, const T& from, const T& to) {
+        if (from.empty()) return source;
+        size_t start_pos = 0;
+        while ((start_pos = source.find(from, start_pos)) != T::npos) {
+            source.replace(start_pos, from.length(), to);
+            start_pos += to.length();
+        }
+        return source;
+    }
+
+    //===============================================================================
+
+    template <IsString T>
+    T erase(T source, const T& target) {
+        return replace(source, target, T{});
+    }
+
+    //===============================================================================
+
 }
