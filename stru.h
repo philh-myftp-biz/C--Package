@@ -110,4 +110,34 @@ namespace stru {
 
     //===============================================================================
 
+    vector<str> split(str source, const str& delim) {
+
+        std::vector<str> parts;
+    
+        if (delim.empty() || source.empty()) {
+            parts.push_back(source);
+            return parts;
+        }
+
+        size_t start = 0;
+        size_t end = source.find(delim);
+
+        while (end != str::npos) {
+            parts.push_back(source.substr(start, end - start));
+            start = end + delim.length();
+            end = source.find(delim, start);
+        }
+
+        // Push the remaining trailing part of the string
+        parts.push_back(source.substr(start));
+
+        return parts;
+    }
+
+    str split(str source, const str& delim, int index) {
+        return split(source, delim)[index]; // TODO: Remove overhead
+    }
+
+    //===============================================================================
+
 }
