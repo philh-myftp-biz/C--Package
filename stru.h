@@ -5,13 +5,17 @@
 #include <iterator>
 #include <cwctype>
 #include <format>
+#include <algorithm>
 
 #include "ww898/utf_converters.hpp"
 
-using str = str;
-using wstr = std::wstring;
-
 namespace stru {
+    
+    using str = std::string;
+    using wstr = std::wstring;
+
+    template <typename T>
+    concept IsString = std::same_as<T, str> || std::same_as<T, wstr>;
 
     //===============================================================================
 
@@ -43,37 +47,25 @@ namespace stru {
 
     //===============================================================================
 
-    bool has_str(str mainstr, str substr) {
-        return mainstr.find(substr) != str::npos;
+    template <IsString T>
+    bool has_str(T mainstr, T substr) {
+        return mainstr.find(substr) != T::npos;
     }
 
-    bool has_str(wstr mainstr, wstr substr) {
-        return mainstr.find(substr) != wstr::npos;
-    }
-
-    bool has_str_nc(str mainstr, str substr) {
-        return has_str(lower(mainstr), lower(substr));
-    }
-
-    bool has_str_nc(wstr mainstr, wstr substr) {
+    template <IsString T>
+    bool has_str_nc(T mainstr, T substr) {
         return has_str(lower(mainstr), lower(substr));
     }
 
     //===============================================================================
 
-    bool match_str(str a, str b) {
+    template <IsString T>
+    bool match_str(T a, T b) {
         return has_str(a, b) || has_str(b, a);
     }
 
-    bool match_str(wstr a, wstr b) {
-        return has_str(a, b) || has_str(b, a);
-    }
-
-    bool match_str_nc(str a, str b) {
-        return has_str_nc(a, b) || has_str_nc(b, a);
-    }
-
-    bool match_str_nc(wstr a, wstr b) {
+    template <IsString T>
+    bool match_str_nc(T a, T b) {
         return has_str_nc(a, b) || has_str_nc(b, a);
     }
 
